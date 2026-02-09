@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Sale Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- HEADER -->
+    <div class="header-card">
+        <img src="{{ url_for('static', filename='images/profile.jpg') }}" class="profile-pic">
+        <h1 class="title">🏠 House Sale Prediction</h1>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-card">
+        <form action="/predict" method="POST" class="form-grid">
+
+            <input type="number" name="bedrooms" placeholder="Bedrooms" required>
+            <input type="number" name="bathrooms" step="0.1" placeholder="Bathrooms" required>
+
+            <input type="number" name="sqft_living" placeholder="Sqft Living" required>
+            <input type="number" name="sqft_lot" placeholder="Sqft Lot" required>
+
+            <input type="number" name="floors" step="0.1" placeholder="Floors" required>
+            <input type="number" name="waterfront" placeholder="Waterfront (0 or 1)" required>
+
+            <input type="number" name="view" placeholder="View" required>
+            <input type="number" name="condition" placeholder="Condition" required>
+
+            <input type="number" name="sqft_above" placeholder="Sqft Above" required>
+            <input type="number" name="sqft_basement" placeholder="Sqft Basement" required>
+
+            <input type="number" name="yr_built" placeholder="Year Built" required>
+            <input type="number" name="yr_renovated" placeholder="Year Renovated (0 if none)" required>
+
+            <input type="number" name="city" placeholder="City (encoded)" required>
+            <input type="number" name="country" placeholder="Country (encoded)" required>
+
+            <input type="number" name="year" placeholder="Year" required>
+            <input type="number" name="month" placeholder="Month" required>
+            <input type="number" name="day" placeholder="Day" required>
+
+            <button type="submit" class="predict-btn">
+                Predict Price
+            </button>
+        </form>
+
+        {% if prediction_text %}
+        <div class="result-card">
+            <p class="result-title">Estimated House Price</p>
+            <p class="result-value">{{ prediction_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <h3>Project By Mouni</h3>
+        <p>Data Scientist & NLP Engineer</p>
+    </div>
+
+</div>
+
+</body>
+</html>
