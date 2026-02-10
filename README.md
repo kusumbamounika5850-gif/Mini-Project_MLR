@@ -1,4 +1,4 @@
-                          # Mini-Project_MLR
+  ## Mini-Project_MLR
 
 <h1 align="center">🏠 House Price Prediction Project</h1>
 
